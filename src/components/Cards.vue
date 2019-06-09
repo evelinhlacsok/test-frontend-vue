@@ -1,6 +1,6 @@
 <template>
   <div>
-      <div v-on:click="goto" class="container">
+      <div class="container">
           <div class="card" v-for="cardItem in cardItems" v-bind:key="cardItem.id">
             <img class="thumbnail" v-bind:src="cardItem.thumbnail" alt="">
             <h3 class="title">{{cardItem.title}}</h3>
@@ -15,8 +15,7 @@
 <script>
 export default {
   data() {return {
-    cardItems: [],
-    photo: 'https://images.unsplash.com/photo-1525253086316-d0c936c814f8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80'
+    cardItems: []
   }},
   
   created: function(){
@@ -24,12 +23,6 @@ export default {
       .then(function(response){
           this.cardItems = response.data;
       })
-  },
-
-  methods: {
-      goto: function(){
-          console.log('opens up card')
-      }
   }
 }
 </script>
